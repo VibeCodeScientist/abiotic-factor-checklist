@@ -1,0 +1,14 @@
+# Community guide in its original wording - not ours to publish (we ship lab-masks-locations.txt instead)
+wiki-source/labmask_reddit.txt
+
+# Source picture the build script cuts the lab mask colours from (re-downloaded when needed)
+assets/img/lab-masks/_variants.png
+
+# Private notes and local editor/assistant settings
+Deepfield contact.txt
+.claude/
+
+# Temporary / generated files
+*.part
+__pycache__/
+*.pyc

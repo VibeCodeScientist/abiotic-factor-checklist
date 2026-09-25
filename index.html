@@ -1,0 +1,98 @@
+<!doctype html>
+<!-- Publishing settings: data-repo = "github-user/repository" (enables the Download and source links,
+     detected automatically on *.github.io); data-image-permission = "requested" or "granted". -->
+<html lang="en" data-repo="VibeCodeScientist/abiotic-factor-checklist" data-image-permission="requested">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Unofficial fan-made checklist for Abiotic Factor: track achievements, collectibles, photo frames, wall decorations, TVs, armor sets and lab masks. Runs in your browser, progress stays on your device.">
+<title>Abiotic Factor &ndash; Field Checklist</title>
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="assets/data.js"></script>
+<script defer src="assets/store.js"></script>
+<script defer src="assets/app.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" aria-label="Profile and categories">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">GATE</span>
+      <span>
+        <span class="brand__title">Field Checklist</span>
+        <span class="brand__sub">Abiotic Factor</span>
+      </span>
+    </div>
+
+    <div class="profile">
+      <label class="eyebrow" for="profile-select">Profile</label>
+      <div class="profile__row">
+        <select class="select" id="profile-select"></select>
+        <button type="button" class="btn btn--small" id="btn-profiles">Manage</button>
+      </div>
+    </div>
+
+    <section class="overall" id="overall" aria-label="Overall progress"></section>
+
+    <nav class="nav" aria-label="Categories"><ul id="nav"></ul></nav>
+
+    <div class="sidebar__foot">
+      <button type="button" class="btn" id="btn-backup">Backup &amp; restore</button>
+      <div class="credits">
+        <p class="credits__lead">Unofficial fan project</p>
+        <p>Texts: <a href="https://abioticfactor.wiki.gg" target="_blank" rel="noopener noreferrer">Abiotic Factor Wiki</a>
+          contributors, <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC&nbsp;BY-SA&nbsp;4.0</a><br>
+          Game images &copy; Deep Field Games</p>
+        <div class="credits__actions">
+          <button type="button" class="btn btn--small" id="btn-about">About &amp; licenses</button>
+          <a class="btn btn--small" id="lnk-download" hidden>Download</a>
+        </div>
+        <p class="meta" id="data-meta"></p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="head" id="head"></header>
+    <div class="banner" id="banner" role="alert" hidden></div>
+
+    <div class="controls">
+      <div class="toolbar" role="search">
+        <div class="search">
+          <svg class="search__icon" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.5" cy="6.5" r="4.75" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 10l4.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <input type="search" class="search__input" id="q" autocomplete="off" spellcheck="false" aria-label="Search" aria-keyshortcuts="/">
+        </div>
+        <label class="switch">
+          <input type="checkbox" class="switch__input" id="opt-all">
+          <span class="switch__track" aria-hidden="true"></span>
+          <span class="switch__label">All categories</span>
+        </label>
+        <label class="switch">
+          <input type="checkbox" class="switch__input" id="opt-hide">
+          <span class="switch__track" aria-hidden="true"></span>
+          <span class="switch__label">Hide completed</span>
+        </label>
+        <label class="switch" id="opt-spoilers-wrap">
+          <input type="checkbox" class="switch__input" id="opt-spoilers">
+          <span class="switch__track" aria-hidden="true"></span>
+          <span class="switch__label">Show spoilers</span>
+        </label>
+      </div>
+      <div class="chips" id="chips" role="group" aria-label="Filter" hidden></div>
+    </div>
+
+    <div class="items" id="items"></div>
+  </main>
+</div>
+
+<div class="sr-only" id="live" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<dialog id="dlg-profiles" aria-labelledby="dlg-profiles-title"></dialog>
+<dialog id="dlg-backup" aria-labelledby="dlg-backup-title"></dialog>
+<dialog id="dlg-confirm" aria-labelledby="dlg-confirm-title"></dialog>
+<dialog id="dlg-about" aria-labelledby="dlg-about-title"></dialog>
+<input type="file" id="import-file" accept=".json,application/json" hidden>
+
+<noscript><p class="noscript">This checklist needs JavaScript. Please enable it for this page.</p></noscript>
+</body>
+</html>
