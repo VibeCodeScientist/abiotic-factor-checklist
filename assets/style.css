@@ -137,6 +137,25 @@ img { max-width: 100%; }
   color: var(--text-dim);
 }
 
+.brand-credit {
+  margin: -6px 0 0;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+.linkbtn {
+  padding: 0;
+  font: inherit;
+  color: var(--amber-2);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 201, 77, 0.4);
+  text-underline-offset: 2px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.linkbtn:hover { color: var(--amber); text-decoration-color: currentColor; }
+
 .profile { display: grid; gap: 6px; }
 .profile__row { display: flex; gap: 8px; }
 

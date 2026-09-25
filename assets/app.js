@@ -76,6 +76,8 @@
         ...(it.bonusesHtml || []).map(htmlText),
         ...(it.detailsHtml || []).map(htmlText),
         ...(it.communityHtml || []).map(htmlText),
+        ...(it.stats || []).map((s) => s.label + ' ' + s.value),
+        cat.kind === 'achievement' ? '' : htmlText(it.descHtml), // achievement texts stay spoiler-protected
       ];
       searchBase.set(it.id, norm(base.filter(Boolean).join(' | ')));
       if (cat.kind === 'achievement') {
@@ -360,6 +362,12 @@
       );
     }
     if (cat.kind === 'tv') return (it.detailsHtml || []).map((d) => `<p>${d}</p>`).join('');
+    if (cat.kind === 'gear') {
+      const stats = (it.stats || []).length
+        ? '<div class="stats">' + it.stats.map((s) => `<span class="kv"><span>${esc(s.label)}</span><b>${esc(s.value)}</b></span>`).join('') + '</div>'
+        : '';
+      return stats + (it.descHtml ? `<p class="desc">${it.descHtml}</p>` : '');
+    }
     if (cat.kind === 'mask') {
       const wiki = (it.detailsHtml || []).map((d) => `<p><span class="label">Wiki</span>${d}</p>`);
       const community = (it.communityHtml || []).map((d) => `<p><span class="label label--community">Guide</span>${d}</p>`);
@@ -992,10 +1000,10 @@
   }
 
   wireDialog(els.dlgAbout);
-  $('#btn-about').addEventListener('click', () => {
+  document.querySelectorAll('[data-open-about]').forEach((btn) => btn.addEventListener('click', () => {
     renderAboutDialog();
     els.dlgAbout.showModal();
-  });
+  }));
 
   // ------------------------------------------------------------------ start
 

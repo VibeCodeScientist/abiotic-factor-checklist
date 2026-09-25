@@ -70,6 +70,14 @@ CATEGORIES = [
          noteHtml=("Masks spawn by chance &ndash; if one is missing, wait for the world and the portal "
                    "world to reset. Locations: Abiotic Factor Wiki and a Reddit community guide "
                    "(rewritten in our own words).")),
+    dict(id="trinkets", page="Armor and Gear", section="Trinket", title="Trinkets", code="TRK",
+         view="list", kind="gear", doneLabel="OBTAINED", expected=25),
+    dict(id="full-body-suits", page="Armor and Gear", section="Full Body Suit", title="Full Body Suits",
+         code="SUI", view="list", kind="gear", doneLabel="OBTAINED", expected=9),
+    dict(id="backpacks", page="Armor and Gear", section="Backpack", title="Backpacks", code="BAG",
+         view="list", kind="gear", doneLabel="OBTAINED", expected=19),
+    dict(id="wristwatches", page="Armor and Gear", section="Wristwatch", title="Wristwatches", code="WAT",
+         view="list", kind="gear", doneLabel="OBTAINED", expected=7),
 ]
 
 # Lab Mask colours (as named on the wiki page) and the swatch colour shown in the app.
@@ -772,6 +780,52 @@ def extract_armor(root: Tag):
     return items, sections
 
 
+def extract_item_table(root: Tag, section: str):
+    """Items of one table under a section heading (e.g. h3 "Backpack" on the Armor and Gear page).
+
+    Columns are mapped by their header: Image, Name and Description are special; every other
+    column (Weight, Slots, Cold Resist, ...) becomes a stat shown with the item.
+    """
+    table, in_section = None, False
+    for el in child_tags(root):
+        hi = heading_info(el)
+        if hi:
+            if in_section:
+                break
+            in_section = hi[1].lower() == section.lower()
+            continue
+        if in_section:
+            found = [el] if el.name == "table" else el.select("table")
+            if found:
+                table = found[0]
+                break
+    if table is None:
+        raise BuildError(f"no table found under the heading '{section}'")
+    headers, rows = table_rows(table)
+    ci = {k: col(headers, k) for k in ("image", "name", "description")}
+    if ci["name"] is None:
+        raise BuildError(f"the table under '{section}' has no 'Name' column")
+    stat_cols = [(i, h.title()) for i, h in enumerate(headers) if i not in ci.values()]
+    items = []
+    for cells in rows:
+        name_cell = cell(cells, ci["name"])
+        link = name_cell.find("a", href=True) if name_cell is not None else None
+        img_cell = cell(cells, ci["image"])
+        stats = []
+        for i, label in stat_cols:
+            value = text(cell(cells, i))
+            if value:
+                stats.append({"label": label, "value": value})
+        items.append(dict(
+            name=text(name_cell),
+            _img=img_cell.find("img") if img_cell is not None else None,
+            wiki=abs_url(link["href"]) if link else None,
+            stats=stats,
+            descHtml=sanitize(cell(cells, ci["description"])),
+        ))
+    return items, []
+
+
 MASK_LINE_RE = re.compile(r"^([A-Za-z]+)\s*[-\u2013\u2014:]\s*(.+)$")
 
 
@@ -969,6 +1023,8 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher) -> tuple[dict, 
         raw, sections = extract_armor(root)
     elif kind == "mask":
         raw, sections = extract_lab_masks(root, page_url, cfg, fetcher)
+    elif kind == "gear":
+        raw, sections = extract_item_table(root, cfg["section"])
     elif cid == "collectibles":
         raw, sections = extract_collectibles(root)
     else:
@@ -1041,8 +1097,9 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher) -> tuple[dict, 
         kind=kind,
         doneLabel=cfg["doneLabel"],
         tileAspect=cfg.get("tileAspect"),
-        wikiUrl=page_url,
-        introHtml=intro_html(root),
+        # one section of a larger page: link its anchor, skip the page's general intro
+        wikiUrl=f"{page_url}#{quote(cfg['section'].replace(' ', '_'))}" if cfg.get("section") else page_url,
+        introHtml="" if cfg.get("section") else intro_html(root),
         noteHtml=cfg.get("noteHtml"),
         links=[dict(label=l, url=u) for l, u in cfg.get("links", [])],
         sections=[dict(id=section_ids[s], title=SECTION_TITLES.get((cid, s), s)) for s in sections],

@@ -14,7 +14,11 @@ A free, **unofficial** fan-made checklist for *Abiotic Factor*. Tick off achieve
 | Television | 11 |
 | Armor Sets | 31 |
 | Lab Masks | 9 (all colour variants) |
-| **Total** | **216** |
+| Trinkets | 25 |
+| Full Body Suits | 9 |
+| Backpacks | 19 |
+| Wristwatches | 7 |
+| **Total** | **276** |
 
 ## How to use
 

@@ -22,6 +22,7 @@ The **Abiotic Factor Field Checklist** is a free, unofficial fan project. It is 
   - [Television](https://abioticfactor.wiki.gg/wiki/Television)
   - [Armor Sets](https://abioticfactor.wiki.gg/wiki/Armor_Sets)
   - [Lab Mask](https://abioticfactor.wiki.gg/wiki/Lab_Mask)
+  - [Armor and Gear](https://abioticfactor.wiki.gg/wiki/Armor_and_Gear) (Trinkets, Full Body Suits, Backpacks, Wristwatches)
 - **Revisions:** the exact wiki revisions used are listed under `sources` in `assets/data.js` and in the app ("About & licenses").
 - **Changes:**
   - Texts were selected, shortened and reformatted for this checklist.

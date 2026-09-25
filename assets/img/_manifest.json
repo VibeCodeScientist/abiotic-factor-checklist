@@ -503,6 +503,120 @@
   "from": "https://abioticfactor.wiki.gg/images/Itemicon_armor_torso_grunt.png?60d80a",
   "url": "https://abioticfactor.wiki.gg/images/Itemicon_armor_torso_grunt.png?60d80a"
  },
+ "backpacks/alpine-pack": {
+  "bytes": 30342,
+  "file": "backpacks/alpine-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_snow.png?de1e34",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_snow.png?de1e34"
+ },
+ "backpacks/basic-backpack": {
+  "bytes": 19967,
+  "file": "backpacks/basic-backpack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_small.png?c47b6c",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_small.png?c47b6c"
+ },
+ "backpacks/chieftain-pack": {
+  "bytes": 32033,
+  "file": "backpacks/chieftain-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Chieftain_Pack.png?915441",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Chieftain_Pack.png?915441"
+ },
+ "backpacks/cold-storage-pack": {
+  "bytes": 30914,
+  "file": "backpacks/cold-storage-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_research_u1b.png?917c7e",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_research_u1b.png?917c7e"
+ },
+ "backpacks/dunkeltaler-backpack": {
+  "bytes": 32689,
+  "file": "backpacks/dunkeltaler-backpack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Dunkeltaler_Backpack.png?4bb536",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Dunkeltaler_Backpack.png?4bb536"
+ },
+ "backpacks/field-sample-pack": {
+  "bytes": 27517,
+  "file": "backpacks/field-sample-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_research_u1a.png?4705f4",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_backpack_research_u1a.png?4705f4"
+ },
+ "backpacks/giants-pack": {
+  "bytes": 26873,
+  "file": "backpacks/giants-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Giant%27s_Pack.png?218175",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Giant%27s_Pack.png?218175"
+ },
+ "backpacks/glitch-pack": {
+  "bytes": 30237,
+  "file": "backpacks/glitch-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_voidpack_glitch.png?58cb16",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_voidpack_glitch.png?58cb16"
+ },
+ "backpacks/hiking-pack": {
+  "bytes": 24201,
+  "file": "backpacks/hiking-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_hikingpack.png?10a0d8",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_hikingpack.png?10a0d8"
+ },
+ "backpacks/jetpack": {
+  "bytes": 32139,
+  "file": "backpacks/jetpack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_jetpack.png?3b8a25",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_jetpack.png?3b8a25"
+ },
+ "backpacks/long-jump-pack": {
+  "bytes": 25456,
+  "file": "backpacks/long-jump-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Long_Jump_Pack.png?5e79b5",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Long_Jump_Pack.png?5e79b5"
+ },
+ "backpacks/makeshift-backpack": {
+  "bytes": 24386,
+  "file": "backpacks/makeshift-backpack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Makeshift_Backpack.png?3ffb8e",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Makeshift_Backpack.png?3ffb8e"
+ },
+ "backpacks/military-pack": {
+  "bytes": 21000,
+  "file": "backpacks/military-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Military_Pack.png?4d7bda",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Military_Pack.png?4d7bda"
+ },
+ "backpacks/pocket-dimension": {
+  "bytes": 32257,
+  "file": "backpacks/pocket-dimension.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Pocket_Dimension.png?3c3b46",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Pocket_Dimension.png?3c3b46"
+ },
+ "backpacks/radio-pack": {
+  "bytes": 22301,
+  "file": "backpacks/radio-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Radio_Pack.png?9244cd",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Radio_Pack.png?9244cd"
+ },
+ "backpacks/rat-pack": {
+  "bytes": 37771,
+  "file": "backpacks/rat-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Rat_Pack.png?5892b2",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Rat_Pack.png?5892b2"
+ },
+ "backpacks/research-pack": {
+  "bytes": 21987,
+  "file": "backpacks/research-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Research_Pack.png?2fe188",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Research_Pack.png?2fe188"
+ },
+ "backpacks/security-pack": {
+  "bytes": 23308,
+  "file": "backpacks/security-pack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Security_Pack.png?b0230c",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Security_Pack.png?b0230c"
+ },
+ "backpacks/voidpack": {
+  "bytes": 33417,
+  "file": "backpacks/voidpack.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_voidpack.png?a6df43",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_voidpack.png?a6df43"
+ },
  "collectibles/abe-bobblehead": {
   "bytes": 11054,
   "file": "collectibles/abe-bobblehead.png",
@@ -731,6 +845,60 @@
   "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Yske_Plushie.png?f5194a",
   "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Yske_Plushie.png?f5194a"
  },
+ "full-body-suits/beekeeper-suit": {
+  "bytes": 25908,
+  "file": "full-body-suits/beekeeper-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_beekeepersuit.png?9237c9",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_beekeepersuit.png?9237c9"
+ },
+ "full-body-suits/diving-suit": {
+  "bytes": 27079,
+  "file": "full-body-suits/diving-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_rebreather.png?b7621c",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_rebreather.png?b7621c"
+ },
+ "full-body-suits/excursion-suit": {
+  "bytes": 24965,
+  "file": "full-body-suits/excursion-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_suit_excursion_02.png?d0a58f",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_suit_excursion_02.png?d0a58f"
+ },
+ "full-body-suits/fire-proximity-suit": {
+  "bytes": 16698,
+  "file": "full-body-suits/fire-proximity-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Fire_Proximity_Suit.png?ed99d7",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Fire_Proximity_Suit.png?ed99d7"
+ },
+ "full-body-suits/hazardous-materials-suit": {
+  "bytes": 15850,
+  "file": "full-body-suits/hazardous-materials-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hazardous_Materials_Suit.png?496b53",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hazardous_Materials_Suit.png?496b53"
+ },
+ "full-body-suits/high-inquisitor-suit": {
+  "bytes": 28343,
+  "file": "full-body-suits/high-inquisitor-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_armor_ratsuit_highinq.png?400671",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_armor_ratsuit_highinq.png?400671"
+ },
+ "full-body-suits/larva-suit": {
+  "bytes": 33957,
+  "file": "full-body-suits/larva-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Larva_Suit.png?d4e5d9",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Larva_Suit.png?d4e5d9"
+ },
+ "full-body-suits/rat-suit": {
+  "bytes": 30540,
+  "file": "full-body-suits/rat-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Rat_Suit.png?63f04d",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Rat_Suit.png?63f04d"
+ },
+ "full-body-suits/sapper-suit": {
+  "bytes": 32112,
+  "file": "full-body-suits/sapper-suit.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Sapper_Suit.png?21ccba",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Sapper_Suit.png?21ccba"
+ },
  "lab-masks/_crops": {
   "files": {
    "black": "lab-masks/black-lab-mask.png",
@@ -940,6 +1108,156 @@
   "file": "television/_icon.png",
   "from": "https://abioticfactor.wiki.gg/images/Itemicon_tv_brown.png?f179ff",
   "url": "https://abioticfactor.wiki.gg/images/Itemicon_tv_brown.png?f179ff"
+ },
+ "trinkets/bio-fusion-imitator": {
+  "bytes": 18900,
+  "file": "trinkets/bio-fusion-imitator.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_biofusion.png?b667ad",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_biofusion.png?b667ad"
+ },
+ "trinkets/carbuncle-balloon": {
+  "bytes": 30759,
+  "file": "trinkets/carbuncle-balloon.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Carbuncle_Balloon.png?c4027e",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Carbuncle_Balloon.png?c4027e"
+ },
+ "trinkets/core-companion": {
+  "bytes": 28042,
+  "file": "trinkets/core-companion.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Core_Companion.png?d56546",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Core_Companion.png?d56546"
+ },
+ "trinkets/corn-husk-doll": {
+  "bytes": 17525,
+  "file": "trinkets/corn-husk-doll.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_doll2.png?6ba2f3",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_doll2.png?6ba2f3"
+ },
+ "trinkets/crystalline-vial": {
+  "bytes": 27516,
+  "file": "trinkets/crystalline-vial.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Crystalline_Vial.png?87bf6b",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Crystalline_Vial.png?87bf6b"
+ },
+ "trinkets/dangling-gravity-cube": {
+  "bytes": 30754,
+  "file": "trinkets/dangling-gravity-cube.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Dangling_Gravity_Cube.png?9f3f4c",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Dangling_Gravity_Cube.png?9f3f4c"
+ },
+ "trinkets/employee-locator": {
+  "bytes": 24971,
+  "file": "trinkets/employee-locator.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Employee_Locator.png?c31762",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Employee_Locator.png?c31762"
+ },
+ "trinkets/fog-lantern": {
+  "bytes": 19315,
+  "file": "trinkets/fog-lantern.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Fog_Lantern.png?f5fd4e",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Fog_Lantern.png?f5fd4e"
+ },
+ "trinkets/geiger-counter-keychain": {
+  "bytes": 23751,
+  "file": "trinkets/geiger-counter-keychain.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Geiger_Counter_Keychain.png?5ee884",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Geiger_Counter_Keychain.png?5ee884"
+ },
+ "trinkets/gel-tube": {
+  "bytes": 20239,
+  "file": "trinkets/gel-tube.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Gel_Tube.png?e56951",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Gel_Tube.png?e56951"
+ },
+ "trinkets/glow-shard": {
+  "bytes": 9950,
+  "file": "trinkets/glow-shard.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Glow_Shard.png?8d70d1",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Glow_Shard.png?8d70d1"
+ },
+ "trinkets/hardlight-shield-generator": {
+  "bytes": 29284,
+  "file": "trinkets/hardlight-shield-generator.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hardlight_Shield_Generator.png?8c3d0f",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hardlight_Shield_Generator.png?8c3d0f"
+ },
+ "trinkets/hasta-trias-right-boot": {
+  "bytes": 17203,
+  "file": "trinkets/hasta-trias-right-boot.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_hastaboot.png?7c638e",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_hastaboot.png?7c638e"
+ },
+ "trinkets/kylie-shield-generator": {
+  "bytes": 27101,
+  "file": "trinkets/kylie-shield-generator.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_shieldgenerator_kylie.png?6d4ae1",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_shieldgenerator_kylie.png?6d4ae1"
+ },
+ "trinkets/kylie-trinket": {
+  "bytes": 24317,
+  "file": "trinkets/kylie-trinket.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_kylie.png?a97380",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_kylie.png?a97380"
+ },
+ "trinkets/neutrino-lantern": {
+  "bytes": 20538,
+  "file": "trinkets/neutrino-lantern.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_neutrinolantern1.png?ee7d4c",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_neutrinolantern1.png?ee7d4c"
+ },
+ "trinkets/night-pass": {
+  "bytes": 25655,
+  "file": "trinkets/night-pass.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_nightpass.png?fba6fc",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_nightpass.png?fba6fc"
+ },
+ "trinkets/ogre-doll": {
+  "bytes": 25764,
+  "file": "trinkets/ogre-doll.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Ogre_Doll.png?10d61e",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Ogre_Doll.png?10d61e"
+ },
+ "trinkets/pet-rock": {
+  "bytes": 28514,
+  "file": "trinkets/pet-rock.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_PetRock1.png?61ccec",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_PetRock1.png?61ccec"
+ },
+ "trinkets/plutonium-keychain": {
+  "bytes": 28893,
+  "file": "trinkets/plutonium-keychain.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Plutonium_Keychain.png?c6e6b7",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Plutonium_Keychain.png?c6e6b7"
+ },
+ "trinkets/sensory-companion": {
+  "bytes": 26574,
+  "file": "trinkets/sensory-companion.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_sensor_greyeb.png?eff24f",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_sensor_greyeb.png?eff24f"
+ },
+ "trinkets/sigil-of-the-hearth": {
+  "bytes": 21613,
+  "file": "trinkets/sigil-of-the-hearth.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Sigil_of_the_Hearth.png?7abf3a",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Sigil_of_the_Hearth.png?7abf3a"
+ },
+ "trinkets/spuddy": {
+  "bytes": 22377,
+  "file": "trinkets/spuddy.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Spuddy.png?c5e978",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Spuddy.png?c5e978"
+ },
+ "trinkets/swinging-censer": {
+  "bytes": 32662,
+  "file": "trinkets/swinging-censer.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Swinging_Censer.png?155246",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Swinging_Censer.png?155246"
+ },
+ "trinkets/zip-shield": {
+  "bytes": 33182,
+  "file": "trinkets/zip-shield.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_shieldgenerator_u1b.png?968415",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_trinket_shieldgenerator_u1b.png?968415"
  },
  "wall-decorations/abstract-blue-painting": {
   "bytes": 14815,
@@ -1246,5 +1564,47 @@
   "file": "wall-decorations/windmill-painting.png",
   "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Windmill_Painting.png?a68f98",
   "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Windmill_Painting.png?a68f98"
+ },
+ "wristwatches/communicator-watch": {
+  "bytes": 25503,
+  "file": "wristwatches/communicator-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_communicator.png?a20ba5",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_communicator.png?a20ba5"
+ },
+ "wristwatches/decoy-watch": {
+  "bytes": 24815,
+  "file": "wristwatches/decoy-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Decoy_Watch.png?cbf2a0",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Decoy_Watch.png?cbf2a0"
+ },
+ "wristwatches/employee-locator-watch": {
+  "bytes": 27257,
+  "file": "wristwatches/employee-locator-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_employeelocator.png?aa9e20",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_employeelocator.png?aa9e20"
+ },
+ "wristwatches/geiger-watch": {
+  "bytes": 51170,
+  "file": "wristwatches/geiger-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_geiger.png?d9dbb8",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_wristwatch_geiger.png?d9dbb8"
+ },
+ "wristwatches/hauling-watch": {
+  "bytes": 24654,
+  "file": "wristwatches/hauling-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hauling_Watch.png?dc63a9",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Hauling_Watch.png?dc63a9"
+ },
+ "wristwatches/pocket-watch": {
+  "bytes": 17491,
+  "file": "wristwatches/pocket-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Pocket_Watch.png?efa7fe",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Pocket_Watch.png?efa7fe"
+ },
+ "wristwatches/stealth-watch": {
+  "bytes": 32105,
+  "file": "wristwatches/stealth-watch.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Stealth_Watch.png?9e71ad",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Stealth_Watch.png?9e71ad"
  }
 }
