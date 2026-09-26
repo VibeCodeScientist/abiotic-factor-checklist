@@ -78,7 +78,28 @@ CATEGORIES = [
          view="list", kind="gear", doneLabel="OBTAINED", expected=19),
     dict(id="wristwatches", page="Armor and Gear", section="Wristwatch", title="Wristwatches", code="WAT",
          view="list", kind="gear", doneLabel="OBTAINED", expected=7),
+    # one entry for the page itself plus one per page linked under "See Also"
+    # (fetch them with: python tools/fetch_wiki_pages.py Antelight --see-also --dir wiki-source/antelights)
+    dict(id="antelights", page="Antelight", see_also=True, title="Antelights", code="ANT",
+         view="list", kind="variant", doneLabel="OBTAINED", expected=8,
+         chips=[("wild", "Found in the world"), ("seed-only", "Seed only")],
+         noteHtml=("Antelights are glowing plants from the Anteverse, used as decoration. Grow them from "
+                   "their seeds &ndash; a planted Antelight can be harvested only once.")),
 ]
+
+# Colour name and swatch (any CSS background) per variant page.
+VARIANT_COLORS = {
+    "Antelight": ("Purple", "#9b5de5"),
+    "Blue Antelight": ("Blue", "#4aa3e0"),
+    "Green Antelight": ("Green", "#5bbf6a"),
+    "Orange Antelight": ("Orange", "#ff8a3d"),
+    "Pink Antelight": ("Pink", "#f28bbd"),
+    "Radiant Antelight": ("Radiant", "linear-gradient(90deg, #ff4d4d, #ffb000, #f2dc4b, #5bbf6a, #4aa3e0, #9b5de5)"),
+    "Red Antelight": ("Red", "#e5484d"),
+    "Digital Space Antelight": ("Digital Space",
+                                "radial-gradient(circle at 30% 35%, #8fe9ff 0 12%, transparent 14%), "
+                                "linear-gradient(135deg, #0b1a4a, #4a1a7a)"),
+}
 
 # Lab Mask colours (as named on the wiki page) and the swatch colour shown in the app.
 LAB_MASK_COLORS = {
@@ -249,7 +270,7 @@ def page_revid(soup) -> int | None:
 
 def load_sources() -> dict:
     pages = {}
-    files = sorted(p for p in SOURCE_DIR.glob("*") if p.suffix.lower() in (".html", ".htm"))
+    files = sorted(p for p in SOURCE_DIR.rglob("*") if p.suffix.lower() in (".html", ".htm"))
     if not files:
         raise BuildError(f"no .html files found in {SOURCE_DIR}")
     for path in files:
@@ -826,6 +847,83 @@ def extract_item_table(root: Tag, section: str):
     return items, []
 
 
+def see_also_titles(root: Tag) -> list[str]:
+    """Titles of the wiki pages linked in a page's "See Also" section."""
+    titles, in_section = [], False
+    for el in child_tags(root):
+        hi = heading_info(el)
+        if hi:
+            in_section = hi[1].lower() == "see also"
+            continue
+        if not in_section:
+            continue
+        for a in el.find_all("a", href=True):
+            m = re.match(r"^(?:https?://abioticfactor\.wiki\.gg)?/wiki/([^?#]+)$", a["href"])
+            if m and ":" not in m.group(1):
+                title = unquote(m.group(1)).replace("_", " ")
+                if title not in titles:
+                    titles.append(title)
+    return titles
+
+
+def variant_item(page: dict) -> dict:
+    """One checklist entry from a single item page (infobox, Sources, Locations)."""
+    root = content_root(page["soup"])
+    prune(root)
+    info = root.select_one("aside.portable-infobox")
+    desc = info.select_one('[data-source="description"] .pi-data-value') if info else None
+    sources, locations = [], []
+    section = area = None
+    for el in child_tags(root):
+        hi = heading_info(el)
+        if hi:
+            if hi[0] == 2:
+                section, area = hi[1].lower(), None
+            elif hi[0] == 3:
+                area = sanitize(el.select_one(".mw-headline") or el)
+            continue
+        if section == "sources" and el.name == "p":
+            s = sanitize(el)
+            if s:
+                sources.append(s)
+        elif section == "locations" and el.name in ("ul", "ol"):
+            for li in el.find_all("li", recursive=False):
+                s = sanitize(li)
+                if s:
+                    locations.append(f"<b>{area}:</b> {s}" if area else s)
+    title = page["title"]
+    color, swatch = VARIANT_COLORS.get(title, (None, None))
+    if color is None:
+        warn(f"{title}: no colour in VARIANT_COLORS - add one for its swatch")
+        color = re.sub(r"\s*Antelight$", "", title) or title
+    seed_only = bool(re.search(r"can only be obtained through planting", " ".join(sources), re.I))
+    return dict(
+        name=title,
+        _img=info.select_one("img") if info else None,
+        _tag="seed-only" if seed_only else "wild",
+        wiki=wiki_page_url(title),
+        color=color,
+        swatch=swatch,
+        descHtml=sanitize(desc),
+        detailsHtml=sources,
+        locationsHtml=locations,
+    )
+
+
+def extract_variant_pages(root: Tag, base: dict, pages: dict):
+    """The base page plus every page it lists under "See Also" (e.g. all Antelight colours)."""
+    items, used = [variant_item(base)], []
+    for title in see_also_titles(root):
+        page = pages.get(title.lower())
+        if page is None:
+            warn(f"'{title}' is listed under See Also but not in wiki-source - fetch it with: "
+                 f'python tools/fetch_wiki_pages.py "{title}" --dir wiki-source/antelights')
+            continue
+        items.append(variant_item(page))
+        used.append(page)
+    return items, [], used
+
+
 MASK_LINE_RE = re.compile(r"^([A-Za-z]+)\s*[-\u2013\u2014:]\s*(.+)$")
 
 
@@ -1008,14 +1106,18 @@ def check_slugify() -> None:
             raise BuildError(f"slugify({name!r}) = {got!r}, expected {expected!r}")
 
 
-def build_category(cfg: dict, page: dict, fetcher: ImageFetcher) -> tuple[dict, list]:
+def build_category(cfg: dict, page: dict, fetcher: ImageFetcher, pages: dict) -> tuple[dict, list, list]:
+    """Returns (category, excluded items, further wiki pages used besides `page`)."""
     cid = cfg["id"]
     soup = page["soup"]
     root = content_root(soup)
     prune(root)
     page_url = wiki_page_url(page["title"])
     kind = cfg["kind"]
-    if kind == "achievement":
+    extra_pages = []
+    if kind == "variant":
+        raw, sections, extra_pages = extract_variant_pages(root, page, pages)
+    elif kind == "achievement":
         raw, sections = extract_achievements(root)
     elif kind == "tv":
         raw, sections = extract_television(root, page_url)
@@ -1099,14 +1201,14 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher) -> tuple[dict, 
         tileAspect=cfg.get("tileAspect"),
         # one section of a larger page: link its anchor, skip the page's general intro
         wikiUrl=f"{page_url}#{quote(cfg['section'].replace(' ', '_'))}" if cfg.get("section") else page_url,
-        introHtml="" if cfg.get("section") else intro_html(root),
+        introHtml="" if cfg.get("section") or cfg.get("see_also") else intro_html(root),
         noteHtml=cfg.get("noteHtml"),
         links=[dict(label=l, url=u) for l, u in cfg.get("links", [])],
         sections=[dict(id=section_ids[s], title=SECTION_TITLES.get((cid, s), s)) for s in sections],
         chips=[dict(tag=t, label=l) for t, l in cfg.get("chips", [])],
         items=items,
     )
-    return category, excluded
+    return category, excluded, extra_pages
 
 
 def validate(categories: list[dict]) -> None:
@@ -1149,7 +1251,7 @@ def main() -> int:
         print(f"Reading wiki pages from {SOURCE_DIR}")
         pages = load_sources()
         fetcher = ImageFetcher(enabled=not args.no_download, refresh=args.refresh_images)
-        categories, excluded, sources = [], [], {}
+        categories, excluded, sources, used_extra = [], [], {}, set()
         for cfg in CATEGORIES:
             page = pages.get(cfg["page"].lower())
             if page is None:
@@ -1157,14 +1259,18 @@ def main() -> int:
                                  f"(found: {', '.join(p['title'] for p in pages.values())})")
             print(f"- {cfg['title']}  ({page['path'].name}, revision {page['revid']})")
             try:
-                cat, exc = build_category(cfg, page, fetcher)
+                cat, exc, extra = build_category(cfg, page, fetcher, pages)
             except BuildError as e:
                 raise BuildError(f"{cfg['title']}: {e}") from None
             categories.append(cat)
             excluded += exc
             sources[cfg["id"]] = dict(page=page["title"], file=page["path"].name,
                                       revid=page["revid"], url=wiki_page_url(page["title"]))
-        known = {c["page"].lower() for c in CATEGORIES}
+            if extra:
+                sources[cfg["id"]]["also"] = [dict(page=p["title"], file=p["path"].name, revid=p["revid"],
+                                                   url=wiki_page_url(p["title"])) for p in extra]
+                used_extra.update(p["title"].lower() for p in extra)
+        known = {c["page"].lower() for c in CATEGORIES} | used_extra
         for key, page in pages.items():
             if key not in known:
                 warn(f"{page['path'].name} ('{page['title']}') is not used - add it to CATEGORIES to show it")

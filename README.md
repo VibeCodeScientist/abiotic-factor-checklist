@@ -18,7 +18,8 @@ A free, **unofficial** fan-made checklist for *Abiotic Factor*. Tick off achieve
 | Full Body Suits | 9 |
 | Backpacks | 19 |
 | Wristwatches | 7 |
-| **Total** | **276** |
+| Antelights | 8 (all colours) |
+| **Total** | **284** |
 
 ## How to use
 
@@ -46,8 +47,9 @@ Progress is saved automatically in your browser's local storage. It is never upl
 
 The data comes from pages of the [Abiotic Factor Wiki](https://abioticfactor.wiki.gg) stored in `wiki-source/`.
 
-1. Save a wiki page as HTML into `wiki-source/`.
-   - For example: `F12` → select `<main>` → *Copy outerHTML* → paste it into a `.html` file.
+1. Get the wiki page into `wiki-source/` (subfolders are fine):
+   - **Easiest:** `python tools/fetch_wiki_pages.py "Page Title"` downloads it through the wiki's API. Add `--see-also` to also fetch every page linked under "See Also", e.g. `python tools/fetch_wiki_pages.py Antelight --see-also --dir wiki-source/antelights`.
+   - **Or by hand:** `F12` → select `<main>` → *Copy outerHTML* → paste it into a `.html` file.
    - The file name does not matter; pages are recognised by their title.
 2. Run `python tools/build_data.py`.
    - This needs Python 3 with `beautifulsoup4` and `requests`.

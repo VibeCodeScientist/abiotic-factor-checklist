@@ -4,7 +4,7 @@ The **Abiotic Factor Field Checklist** is a free, unofficial fan project. It is 
 
 | Part | Files | License / owner |
 |---|---|---|
-| Texts (names, descriptions, requirements, locations) | `assets/data.js`, `wiki-source/*.html` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), Abiotic Factor Wiki contributors |
+| Texts (names, descriptions, requirements, locations) | `assets/data.js`, the wiki pages in `wiki-source/` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), Abiotic Factor Wiki contributors |
 | Lab Mask location hints | `wiki-source/lab-masks-locations.txt` | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (our own wording) |
 | Game images | `assets/img/` | © Deep Field Games and/or its licensors, see below |
 | Code | `index.html`, `assets/*.js`, `assets/style.css`, `tools/` | MIT, see [LICENSE](LICENSE) |
@@ -23,6 +23,7 @@ The **Abiotic Factor Field Checklist** is a free, unofficial fan project. It is 
   - [Armor Sets](https://abioticfactor.wiki.gg/wiki/Armor_Sets)
   - [Lab Mask](https://abioticfactor.wiki.gg/wiki/Lab_Mask)
   - [Armor and Gear](https://abioticfactor.wiki.gg/wiki/Armor_and_Gear) (Trinkets, Full Body Suits, Backpacks, Wristwatches)
+  - [Antelight](https://abioticfactor.wiki.gg/wiki/Antelight), [Blue](https://abioticfactor.wiki.gg/wiki/Blue_Antelight), [Green](https://abioticfactor.wiki.gg/wiki/Green_Antelight), [Orange](https://abioticfactor.wiki.gg/wiki/Orange_Antelight), [Pink](https://abioticfactor.wiki.gg/wiki/Pink_Antelight), [Radiant](https://abioticfactor.wiki.gg/wiki/Radiant_Antelight), [Red](https://abioticfactor.wiki.gg/wiki/Red_Antelight) and [Digital Space Antelight](https://abioticfactor.wiki.gg/wiki/Digital_Space_Antelight)
 - **Revisions:** the exact wiki revisions used are listed under `sources` in `assets/data.js` and in the app ("About & licenses").
 - **Changes:**
   - Texts were selected, shortened and reformatted for this checklist.

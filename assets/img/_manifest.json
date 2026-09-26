@@ -317,6 +317,54 @@
   "from": "https://abioticfactor.wiki.gg/images/Achievement_Icon_-_We_Don%27t_Talk_About_That_Place.png?c995e4",
   "url": "https://abioticfactor.wiki.gg/images/Achievement_Icon_-_We_Don%27t_Talk_About_That_Place.png?c995e4"
  },
+ "antelights/antelight": {
+  "bytes": 19420,
+  "file": "antelights/antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight.png?1b3990",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight.png?1b3990"
+ },
+ "antelights/blue-antelight": {
+  "bytes": 20861,
+  "file": "antelights/blue-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_blue1.png?4178d8",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_blue1.png?4178d8"
+ },
+ "antelights/digital-space-antelight": {
+  "bytes": 22119,
+  "file": "antelights/digital-space-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_space.png?7de52c",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_space.png?7de52c"
+ },
+ "antelights/green-antelight": {
+  "bytes": 20530,
+  "file": "antelights/green-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_GRN1.png?c99dd2",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_GRN1.png?c99dd2"
+ },
+ "antelights/orange-antelight": {
+  "bytes": 19571,
+  "file": "antelights/orange-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_orange1.png?20331b",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_orange1.png?20331b"
+ },
+ "antelights/pink-antelight": {
+  "bytes": 20502,
+  "file": "antelights/pink-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_pink1.png?cc9ad7",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_pink1.png?cc9ad7"
+ },
+ "antelights/radiant-antelight": {
+  "bytes": 19250,
+  "file": "antelights/radiant-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_RGB1.png?f3236b",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_RGB1.png?f3236b"
+ },
+ "antelights/red-antelight": {
+  "bytes": 19983,
+  "file": "antelights/red-antelight.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_red1.png?a16705",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antelight_red1.png?a16705"
+ },
  "armor-sets/aegis-armor-set": {
   "bytes": 30676,
   "file": "armor-sets/aegis-armor-set.png",

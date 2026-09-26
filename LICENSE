@@ -1,5 +1,5 @@
 Scope: this license covers the source code of the Abiotic Factor Field Checklist
-(index.html, assets/app.js, assets/store.js, assets/style.css, tools/build_data.py).
+(index.html, assets/app.js, assets/store.js, assets/style.css and the scripts in tools/).
 It does NOT cover:
   - the texts in assets/data.js and the pages in wiki-source/, which are adapted from the
     Abiotic Factor Wiki and licensed under CC BY-SA 4.0, and

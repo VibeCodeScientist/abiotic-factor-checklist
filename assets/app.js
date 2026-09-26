@@ -76,6 +76,7 @@
         ...(it.bonusesHtml || []).map(htmlText),
         ...(it.detailsHtml || []).map(htmlText),
         ...(it.communityHtml || []).map(htmlText),
+        ...(it.locationsHtml || []).map(htmlText),
         ...(it.stats || []).map((s) => s.label + ' ' + s.value),
         cat.kind === 'achievement' ? '' : htmlText(it.descHtml), // achievement texts stay spoiler-protected
       ];
@@ -310,6 +311,10 @@
     return `<span class="badge badge--${esc(mod)}"${title ? ` title="${esc(title)}"` : ''}>${esc(text)}</span>`;
   }
 
+  function swatchBadge(it) {
+    return `<span class="badge badge--swatch"><span class="swatch" style="--swatch:${esc(it.swatch)}"></span>${esc(it.color)}</span>`;
+  }
+
   function badgesHTML(cat, it) {
     const b = [];
     if (cat.kind === 'achievement') {
@@ -323,11 +328,13 @@
     } else if (cat.kind === 'tv') {
       b.push(badge('CH ' + String(itemById.get(it.id).index + 1).padStart(2, '0'), 'chan'));
     } else if (cat.kind === 'mask') {
-      if (it.swatch) {
-        b.push(`<span class="badge badge--swatch"><span class="swatch" style="--swatch:${esc(it.swatch)}"></span>${esc(it.color)}</span>`);
-      }
+      if (it.swatch) b.push(swatchBadge(it));
       if ((it.tags || []).includes('unique')) b.push(badge('Unique', 'unique', 'Only found at specific spots - and not every time.'));
       else b.push(badge('Common', 'plain', 'Found in many places across the facility.'));
+    } else if (cat.kind === 'variant') {
+      if (it.swatch) b.push(swatchBadge(it));
+      if ((it.tags || []).includes('seed-only')) b.push(badge('Seed only', 'plain', 'Can only be grown from its seed.'));
+      else b.push(badge('Found in the world', 'unique', 'Also grows somewhere in the world - see Where.'));
     }
     return b.length ? `<span class="badges">${b.join('')}</span>` : '';
   }
@@ -362,6 +369,13 @@
       );
     }
     if (cat.kind === 'tv') return (it.detailsHtml || []).map((d) => `<p>${d}</p>`).join('');
+    if (cat.kind === 'variant') {
+      return (
+        (it.descHtml ? `<p class="desc">${it.descHtml}</p>` : '') +
+        (it.detailsHtml || []).map((d) => `<p><span class="label">How</span>${d}</p>`).join('') +
+        (it.locationsHtml || []).map((d) => `<p><span class="label">Where</span>${d}</p>`).join('')
+      );
+    }
     if (cat.kind === 'gear') {
       const stats = (it.stats || []).length
         ? '<div class="stats">' + it.stats.map((s) => `<span class="kv"><span>${esc(s.label)}</span><b>${esc(s.value)}</b></span>`).join('') + '</div>'
@@ -956,12 +970,13 @@
   function renderAboutDialog() {
     const link = (url, text) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`;
     const ccBySa = link('https://creativecommons.org/licenses/by-sa/4.0/', 'CC BY-SA 4.0');
+    const pageLink = (p) => link(p.revid ? `${p.url}?oldid=${p.revid}` : p.url, esc(p.page)) +
+      (p.revid ? ` <span class="muted">(revision ${esc(p.revid)})</span>` : '');
     const sources = CATS.map((cat) => {
       const s = (DATA.sources || {})[cat.id];
       if (!s) return '';
-      const url = s.revid ? `${s.url}?oldid=${s.revid}` : s.url;
-      return `<li>${link(url, esc(s.page))}${s.revid ? ` <span class="muted">(revision ${esc(s.revid)})</span>` : ''}` +
-        ` &ndash; used for ${esc(cat.title)}</li>`;
+      const also = (s.also || []).map(pageLink).join(', ');
+      return `<li>${pageLink(s)}${also ? ', ' + also : ''} &ndash; used for ${esc(cat.title)}</li>`;
     }).join('');
     const permitted = document.documentElement.dataset.imagePermission === 'granted';
     const repo = repoInfo();
@@ -987,7 +1002,7 @@
         They are not covered by the licenses above.</p>
 
       <h3>Code</h3>
-      <p>The checklist code (HTML, CSS, JavaScript, build script) is released under the MIT License.
+      <p>The checklist code (HTML, CSS, JavaScript, build scripts) is released under the MIT License.
         ${repo ? link(repo.url + '/blob/main/LICENSE', 'License text') + ' &middot; ' + link(repo.url, 'Source code on GitHub')
           + ' &middot; ' + link(repo.zip, 'Download (ZIP)') : 'See the LICENSE and CREDITS.md files.'}</p>
 
