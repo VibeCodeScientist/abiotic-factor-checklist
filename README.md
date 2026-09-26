@@ -19,7 +19,8 @@ A free, **unofficial** fan-made checklist for *Abiotic Factor*. Tick off achieve
 | Backpacks | 19 |
 | Wristwatches | 7 |
 | Antelights | 8 (all colours) |
-| **Total** | **284** |
+| Rare Fish | 17 |
+| **Total** | **301** |
 
 ## How to use
 

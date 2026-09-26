@@ -1151,6 +1151,108 @@
   "from": "https://abioticfactor.wiki.gg/images/Xiu_Photo_Frame.png?4e9a79",
   "url": "https://abioticfactor.wiki.gg/images/Xiu_Photo_Frame.png?4e9a79"
  },
+ "rare-fish/adiabatic-queenfish": {
+  "bytes": 25236,
+  "file": "rare-fish/adiabatic-queenfish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_fish_ice_rare.png?86d16f",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_fish_ice_rare.png?86d16f"
+ },
+ "rare-fish/amaranthic-is-0098": {
+  "bytes": 21116,
+  "file": "rare-fish/amaranthic-is-0098.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Amaranthic_IS-0098.png?8ef57e",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Amaranthic_IS-0098.png?8ef57e"
+ },
+ "rare-fish/auric-gutfish-eel": {
+  "bytes": 28838,
+  "file": "rare-fish/auric-gutfish-eel.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_eel_goldentail.png?6be30f",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_eel_goldentail.png?6be30f"
+ },
+ "rare-fish/caustic-radfish": {
+  "bytes": 35965,
+  "file": "rare-fish/caustic-radfish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_radfish_rare01.png?c2d4d5",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_radfish_rare01.png?c2d4d5"
+ },
+ "rare-fish/corruscating-portal-fish": {
+  "bytes": 33859,
+  "file": "rare-fish/corruscating-portal-fish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_1.png?152559",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_1.png?152559"
+ },
+ "rare-fish/crepuscular-penumbra": {
+  "bytes": 25187,
+  "file": "rare-fish/crepuscular-penumbra.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Crepuscular_Penumbra.png?117b37",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Crepuscular_Penumbra.png?117b37"
+ },
+ "rare-fish/entropic-portal-fish": {
+  "bytes": 34008,
+  "file": "rare-fish/entropic-portal-fish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_2.png?1a2175",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_2.png?1a2175"
+ },
+ "rare-fish/gossamer-betta": {
+  "bytes": 25424,
+  "file": "rare-fish/gossamer-betta.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Gossamer_Betta.png?9fcea7",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Gossamer_Betta.png?9fcea7"
+ },
+ "rare-fish/nacreous-gutfish-eel": {
+  "bytes": 14935,
+  "file": "rare-fish/nacreous-gutfish-eel.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_eel_rare.png?866958",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_eel_rare.png?866958"
+ },
+ "rare-fish/opal-crab": {
+  "bytes": 32145,
+  "file": "rare-fish/opal-crab.png",
+  "from": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Opal_Crab.png?beb3ec",
+  "url": "https://abioticfactor.wiki.gg/images/Item_Icon_-_Opal_Crab.png?beb3ec"
+ },
+ "rare-fish/osseous-chordfish": {
+  "bytes": 20454,
+  "file": "rare-fish/osseous-chordfish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_fogfish_rare.png?15506e",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_fogfish_rare.png?15506e"
+ },
+ "rare-fish/oxidious-antefish": {
+  "bytes": 17348,
+  "file": "rare-fish/oxidious-antefish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_antefish_rare.png?b1291b",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_antefish_rare.png?b1291b"
+ },
+ "rare-fish/pelagic-moon-fish": {
+  "bytes": 26865,
+  "file": "rare-fish/pelagic-moon-fish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_moonfish_rare01.png?98a9b9",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_moonfish_rare01.png?98a9b9"
+ },
+ "rare-fish/portal-koi": {
+  "bytes": 33619,
+  "file": "rare-fish/portal-koi.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_torii.png?365c56",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_portalfish_rare_torii.png?365c56"
+ },
+ "rare-fish/sable-inkfish": {
+  "bytes": 20597,
+  "file": "rare-fish/sable-inkfish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_InkFish_rare1.png?b4fdc2",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_InkFish_rare1.png?b4fdc2"
+ },
+ "rare-fish/saxe-darkwater-fish": {
+  "bytes": 21766,
+  "file": "rare-fish/saxe-darkwater-fish.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_darkwaterfish_rare01.png?438a4b",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_darkwaterfish_rare01.png?438a4b"
+ },
+ "rare-fish/wraith-gutfish-eel": {
+  "bytes": 14267,
+  "file": "rare-fish/wraith-gutfish-eel.png",
+  "from": "https://abioticfactor.wiki.gg/images/Itemicon_eel_translucent.png?35ca78",
+  "url": "https://abioticfactor.wiki.gg/images/Itemicon_eel_translucent.png?35ca78"
+ },
  "television/_icon": {
   "bytes": 12534,
   "file": "television/_icon.png",

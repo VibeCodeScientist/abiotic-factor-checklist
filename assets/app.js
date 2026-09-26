@@ -77,6 +77,7 @@
         ...(it.detailsHtml || []).map(htmlText),
         ...(it.communityHtml || []).map(htmlText),
         ...(it.locationsHtml || []).map(htmlText),
+        ...(it.lines || []).map((l) => htmlText(l.html)),
         ...(it.stats || []).map((s) => s.label + ' ' + s.value),
         cat.kind === 'achievement' ? '' : htmlText(it.descHtml), // achievement texts stay spoiler-protected
       ];
@@ -376,11 +377,12 @@
         (it.locationsHtml || []).map((d) => `<p><span class="label">Where</span>${d}</p>`).join('')
       );
     }
-    if (cat.kind === 'gear') {
+    if (cat.kind === 'gear' || cat.kind === 'fish') {
       const stats = (it.stats || []).length
         ? '<div class="stats">' + it.stats.map((s) => `<span class="kv"><span>${esc(s.label)}</span><b>${esc(s.value)}</b></span>`).join('') + '</div>'
         : '';
-      return stats + (it.descHtml ? `<p class="desc">${it.descHtml}</p>` : '');
+      const lines = (it.lines || []).map((l) => `<p><span class="label">${esc(l.label)}</span>${l.html}</p>`).join('');
+      return stats + (it.descHtml ? `<p class="desc">${it.descHtml}</p>` : '') + lines;
     }
     if (cat.kind === 'mask') {
       const wiki = (it.detailsHtml || []).map((d) => `<p><span class="label">Wiki</span>${d}</p>`);

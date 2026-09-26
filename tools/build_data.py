@@ -85,6 +85,12 @@ CATEGORIES = [
          chips=[("wild", "Found in the world"), ("seed-only", "Seed only")],
          noteHtml=("Antelights are glowing plants from the Anteverse, used as decoration. Grow them from "
                    "their seeds &ndash; a planted Antelight can be harvested only once.")),
+    dict(id="rare-fish", page="Fishing", anchor="List_of_Fish", title="Rare Fish", code="FSH",
+         view="list", kind="fish", doneLabel="CAUGHT", expected=17,
+         chips=[("night", "Night"), ("dawn", "Dawn"), ("noon", "Noon"), ("dusk", "Dusk"), ("any-time", "Any time")],
+         noteHtml=("Rare variants give double the resources when butchered at a Chef&rsquo;s Counter. "
+                   "Times on the watch: Night 9 PM&ndash;6 AM &middot; Dawn 6&ndash;11 AM &middot; "
+                   "Noon 11 AM&ndash;4 PM &middot; Dusk 4&ndash;9 PM.")),
 ]
 
 # Colour name and swatch (any CSS background) per variant page.
@@ -208,6 +214,8 @@ def sanitize_node(node) -> str:
         return f"<b>{inner}</b>"
     if name == "a":
         href = node.get("href") or ""
+        if not inner.strip():
+            return inner  # e.g. a link that only wrapped an icon
         if not href or href.startswith("#") or "new" in cls or "action=edit" in href:
             return inner
         url = abs_url(href)
@@ -360,6 +368,46 @@ def table_rows(table: Tag):
             headers = [text(c).lower() for c in cells]
         elif any(c.name == "td" for c in cells):
             rows.append(cells)
+    return headers or [], rows
+
+
+def table_grid(table: Tag):
+    """Like table_rows(), but rowspan/colspan cells are repeated so every row has all columns."""
+    def span(c, attr):
+        digits = re.sub(r"\D", "", c.get(attr) or "")
+        return max(1, int(digits)) if digits else 1
+
+    headers, rows, pending = None, [], {}  # pending: column -> [cell, rows still to fill]
+    for tr in table.find_all("tr"):
+        if tr.find_parent("table") is not table:
+            continue
+        cells = tr.find_all(["td", "th"], recursive=False)
+        if not cells:
+            continue
+        if headers is None and all(c.name == "th" for c in cells):
+            headers = [text(c).lower() for c in cells]
+            continue
+        out, colno, queue = {}, 0, list(cells)
+        while queue or any(k >= colno for k in pending):
+            if colno in pending:
+                c, left = pending[colno]
+                out[colno] = c
+                if left <= 1:
+                    del pending[colno]
+                else:
+                    pending[colno] = [c, left - 1]
+                colno += 1
+                continue
+            if not queue:
+                break
+            c = queue.pop(0)
+            rs = span(c, "rowspan")
+            for _ in range(span(c, "colspan")):
+                out[colno] = c
+                if rs > 1:
+                    pending[colno] = [c, rs - 1]
+                colno += 1
+        rows.append([out[k] for k in sorted(out)])
     return headers or [], rows
 
 
@@ -847,6 +895,49 @@ def extract_item_table(root: Tag, section: str):
     return items, []
 
 
+FISH_TIMES = ("night", "dawn", "noon", "dusk")
+
+
+def extract_fish(root: Tag):
+    """Rare fish from the "List of Fish" table: Common | Rare | Location(s) | Best Time(s) | Products."""
+    table = None
+    for t in root.select("table"):
+        headers, rows = table_grid(t)
+        if col(headers, "rare") is not None and col(headers, "common") is not None:
+            table = (headers, rows)
+            break
+    if table is None:
+        raise BuildError("no table with 'Common' and 'Rare' columns")
+    headers, rows = table
+    ci = {k: col(headers, k) for k in ("common", "rare", "location", "best time", "products")}
+    items = []
+    for cells in rows:
+        rare = cell(cells, ci["rare"])
+        link = next((a for a in rare.find_all("a", href=True) if text(a)), None) if rare is not None else None
+        if link is None:
+            continue  # "N/A": this fish has no rare variant
+        common = cell(cells, ci["common"])
+        common_link = next((a for a in common.find_all("a", href=True) if text(a)), None) if common is not None else None
+        time_text = text(cell(cells, ci["best time"]))
+        times = [t for t in FISH_TIMES if re.search(rf"\b{t}\b", time_text, re.I)]
+        lines = []
+        if common_link is not None:
+            lines.append({"label": "Rare variant of", "html": collapse_ws(sanitize_node(common_link))})
+        for label, key in (("Where", "location"), ("Yields", "products")):
+            c = cell(cells, ci[key])
+            if c is not None and text(c).upper() not in ("", "N/A"):
+                lines.append({"label": label, "html": sanitize(c)})
+        items.append(dict(
+            name=text(link),
+            _img=rare.find("img"),
+            _tag=times or ["any-time"],
+            wiki=abs_url(link["href"]),
+            stats=[{"label": "Best Time", "value": time_text}] if times else [],
+            lines=lines,
+        ))
+    return items, []
+
+
 def see_also_titles(root: Tag) -> list[str]:
     """Titles of the wiki pages linked in a page's "See Also" section."""
     titles, in_section = [], False
@@ -1127,6 +1218,8 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher, pages: dict) ->
         raw, sections = extract_lab_masks(root, page_url, cfg, fetcher)
     elif kind == "gear":
         raw, sections = extract_item_table(root, cfg["section"])
+    elif kind == "fish":
+        raw, sections = extract_fish(root)
     elif cid == "collectibles":
         raw, sections = extract_collectibles(root)
     else:
@@ -1179,7 +1272,7 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher, pages: dict) ->
             if re.search(r"\b(PS5|PlayStation|Xbox)\s+only\b", r["reqHtml"], re.I):
                 warn(f"Achievements: '{name}' looks console-only - consider adding it to EXCLUDE")
         elif r.get("_tag"):
-            item["tags"] = [r["_tag"]]
+            item["tags"] = list(r["_tag"]) if isinstance(r["_tag"], list) else [r["_tag"]]
         elif item["section"]:
             item["tags"] = [item["section"]]
         for k, v in r.items():
@@ -1200,7 +1293,8 @@ def build_category(cfg: dict, page: dict, fetcher: ImageFetcher, pages: dict) ->
         doneLabel=cfg["doneLabel"],
         tileAspect=cfg.get("tileAspect"),
         # one section of a larger page: link its anchor, skip the page's general intro
-        wikiUrl=f"{page_url}#{quote(cfg['section'].replace(' ', '_'))}" if cfg.get("section") else page_url,
+        wikiUrl=(f"{page_url}#{quote(cfg.get('anchor') or cfg['section'].replace(' ', '_'))}"
+                 if cfg.get("anchor") or cfg.get("section") else page_url),
         introHtml="" if cfg.get("section") or cfg.get("see_also") else intro_html(root),
         noteHtml=cfg.get("noteHtml"),
         links=[dict(label=l, url=u) for l, u in cfg.get("links", [])],
